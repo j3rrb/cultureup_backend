@@ -1,0 +1,21 @@
+version: "3"
+
+name: cultureup_backend
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: prod.Dockerfile
+    ports:
+      - 80:3000
+  db:
+    image: postgres:14
+    ports:
+      - 3849:5432
+    volumes:
+      - /var/lib/cultureup_db:/var/lib/postgres
+    environment:
+      POSTGRES_USER: cultureup
+      POSTGRES_PASSWORD: .#cv17vr3vp#.
+      POSTGRES_DB: cultureup
